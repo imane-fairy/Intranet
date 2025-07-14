@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une absence</title>
+</head>
+<body>
+    <h1>Ajouter une absence</h1>
+
+    <form th:action="@{/absences/ajouter}" th:object="${absence}" method="post">
+        <label>Employé :</label>
+        <select th:field="*{employe}">
+            <option th:each="emp : ${employes}" th:value="${emp}" th:text="${emp.nom}"></option>
+        </select>
+        <br>
+
+        <label>Date :</label>
+        <input type="date" th:field="*{date}" />
+        <br>
+
+        <label>Motif :</label>
+        <input type="text" th:field="*{motif}" />
+        <br>
+
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

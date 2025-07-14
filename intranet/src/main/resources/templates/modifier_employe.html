@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier un employé</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Modifier un employé</h1>
+    <form th:action="@{'/employes/modifier/' + ${employe.id}}" th:object="${employe}" method="post">
+        <label>Nom:</label>
+        <input type="text" th:field="*{nom}" required /><br/><br/>
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required /><br/><br/>
+
+        <label>Solde Congés:</label>
+        <input type="number" th:field="*{soldeConges}" required min="0" /><br/><br/>
+
+        <button type="submit">Modifier</button>
+    </form>
+    <a href="/employes">Retour à la liste</a>
+</body>
+</html>

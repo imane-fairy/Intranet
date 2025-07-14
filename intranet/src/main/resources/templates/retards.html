@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des retards</title>
+</head>
+<body>
+    <h1>Liste des retards</h1>
+
+    <a href="/retards/ajouter">Ajouter un retard</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Employé</th>
+                <th>Date</th>
+                <th>Heure d'arrivée</th>
+                <th>Justification</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="retard : ${retards}">
+                <td th:text="${retard.employe != null ? retard.employe.nom : '---'}">Nom</td>
+                <td th:text="${retard.date}">2025-01-01</td>
+                <td th:text="${retard.heureArrivee}">09:15</td>
+                <td th:text="${retard.justification}">Circulation</td>
+                <td th:text="${retard.statut}">En attente</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

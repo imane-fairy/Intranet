@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un retard</title>
+</head>
+<body>
+    <h1>Ajouter un retard</h1>
+
+  <form action="#" th:action="@{/retards/ajouter}" th:object="${retard}" method="post">
+    <label for="employe">Employé :</label>
+    <select id="employe" name="employe" th:field="*{employe}">
+        <option value="" disabled selected>Choisissez un employé</option>
+        <option th:each="emp : ${employes}" th:value="${emp.id}" th:text="${emp.nom}">Employé</option>
+    </select>
+
+    <label for="date">Date :</label>
+    <input type="date" id="date" th:field="*{date}" />
+
+    <label for="heureArrivee">Heure d'arrivée :</label>
+    <input type="time" id="heureArrivee" th:field="*{heureArrivee}" />
+
+    <label for="justification">Justification :</label>
+    <input type="text" id="justification" th:field="*{justification}" />
+
+    <button type="submit">Ajouter</button>
+</form>
+
+</body>
+</html>

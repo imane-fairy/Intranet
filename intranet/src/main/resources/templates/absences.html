@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des absences</title>
+</head>
+<body>
+    <h1>Liste des absences</h1>
+
+    <a href="/absences/ajouter">Ajouter une absence</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Employé</th>
+                <th>Date</th>
+                <th>Motif</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="absence : ${absences}">
+                <td th:text="${absence.employe.nom}">Nom</td>
+                <td th:text="${absence.date}">2025-01-01</td>
+                <td th:text="${absence.motif}">Maladie</td>
+                <td th:text="${absence.statut}">En attente</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

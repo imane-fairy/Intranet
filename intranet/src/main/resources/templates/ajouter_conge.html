@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter une demande de congé</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>Nouvelle demande de congé</h1>
+
+    <form th:action="@{/conges/ajouter}" th:object="${conge}" method="post">
+        <label>Employé :</label>
+        <select th:field="*{employe}" required>
+            <option th:each="emp : ${employes}" th:value="${emp}" th:text="${emp.nom}"></option>
+        </select><br/><br/>
+
+        <label>Type de congé :</label>
+        <select th:field="*{typeConge}" required>
+            <option th:each="type : ${typesConge}" th:value="${type}" th:text="${type.nom}"></option>
+        </select><br/><br/>
+
+        <label>Date début :</label>
+        <input type="date" th:field="*{dateDebut}" required/><br/><br/>
+
+        <label>Date fin :</label>
+        <input type="date" th:field="*{dateFin}" required/><br/><br/>
+
+        <button type="submit">Envoyer la demande</button>
+    </form>
+
+    <p><a href="/conges">Retour à la liste</a></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des congés</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>Liste des congés</h1>
+
+    <a href="/conges/ajouter">Ajouter une demande de congé</a>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Employé</th>
+                <th>Type de congé</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="conge : ${conges}">
+                <td th:text="${conge.employe.nom}">Nom Employé</td>
+                <td th:text="${conge.typeConge.nom}">Type</td>
+                <td th:text="${conge.dateDebut}">2025-07-10</td>
+                <td th:text="${conge.dateFin}">2025-07-15</td>
+                <td th:text="${conge.statut}">En attente</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
